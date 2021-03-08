@@ -38,8 +38,6 @@ public class ModulesView extends LitTemplate implements AfterNavigationObserver 
     @Override
     public void afterNavigation(AfterNavigationEvent event) {
 
-        System.out.println("I'm loaded?");
-
         // Set some data when this view is displayed.
         List<ModulesEndpoint.Module> persons = Arrays.asList( //
 

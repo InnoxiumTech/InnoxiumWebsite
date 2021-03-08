@@ -9,7 +9,7 @@ import net.bytebuddy.dynamic.scaffold.MethodGraph;
 import java.util.LinkedList;
 import java.util.List;
 
-@Endpoint
+@Endpoint("modules")
 @AnonymousAllowed
 @Data
 public class ModulesEndpoint {

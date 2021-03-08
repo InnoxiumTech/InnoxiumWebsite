@@ -18,7 +18,7 @@ import com.vaadin.flow.theme.lumo.Lumo;
  */
 @SpringBootApplication
 @Theme(value = Lumo.class, variant = Lumo.DARK)
-@PWA(name = "InnoxiumTech", shortName = "InnoxiumTech", offlineResources = {"images/logo.png"})
+@PWA(name = "InnoxiumTech", shortName = "InnoxiumTech", offlineResources = {"images/logo.svg"}, iconPath = "/icons/favicon.ico")
 public class Application extends SpringBootServletInitializer implements AppShellConfigurator {
 
     public static void main(String[] args) {

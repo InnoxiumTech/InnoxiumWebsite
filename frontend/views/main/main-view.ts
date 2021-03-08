@@ -5,10 +5,12 @@ import '@vaadin/vaadin-tabs';
 import '@vaadin/vaadin-tabs/vaadin-tab';
 import { customElement, html } from 'lit-element';
 import { router } from '../../index';
-import { ViewRoute, views} from '../../routes';
+// @ts-ignore
+import {serverSideRoutes, ViewRoute, views} from '../../routes';
 import { appStore } from '../../store/app-store';
 import { Layout } from '../view';
 import styles from './main-view.css';
+import {AppLayoutElement} from "@vaadin/vaadin-app-layout";
 
 @customElement('main-view')
 export class MainView extends Layout {
@@ -21,8 +23,12 @@ export class MainView extends Layout {
       <vaadin-app-layout id="layout">
         <div id="topbar" slot="navbar" theme="dark">
           <header slot="navbar">
-            <img id="logo" src="images/logo.png" alt="${appStore.applicationName} logo" />
-            <h1>${appStore.applicationName}</h1>
+            <a href="${router.urlForPath("")}">
+              <img id="logo" src="images/logo.svg" alt="${appStore.applicationName} logo" />
+            </a>
+            <a href="${router.urlForPath("")}">
+              <h1>${appStore.applicationName}</h1>
+            </a>
           </header>
           <vaadin-tabs slot="navbar" id="tabs" .selected="${this.getSelectedViewRoute()}">
             ${this.getMenuRoutes().map(
@@ -32,6 +38,9 @@ export class MainView extends Layout {
                 </vaadin-tab>
               `
             )}
+            <vaadin-tab>
+              <a href="${router.urlForPath("modules")}">Modules</a>
+            </vaadin-tab>
           </vaadin-tabs>
         </div>
         <slot></slot>
@@ -39,12 +48,28 @@ export class MainView extends Layout {
     `;
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    this.reaction(
+        () => appStore.location,
+        () => {
+          AppLayoutElement.dispatchCloseOverlayDrawerEvent();
+        }
+    );
+  }
+
   private getMenuRoutes(): ViewRoute[] {
     // Only routes that have a title will be rendered
+    // @ts-ignore
     return views.filter((route) => route.title);
   }
 
   private getSelectedViewRoute(): number {
-    return this.getMenuRoutes().findIndex((viewRoute) => viewRoute.path == appStore.location);
+
+    let num = this.getMenuRoutes().findIndex((viewRoute) => viewRoute.path == appStore.location);
+    console.log(num)
+    if(num == -1) num = views.length + 1
+    return num
   }
 }

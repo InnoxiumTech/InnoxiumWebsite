@@ -5,7 +5,7 @@ import './views/main/main-view';
 
 export type ViewRoute = Route & { title?: string; children?: ViewRoute[] };
 
-const {serverSideRoutes} = new Flow({
+export const {serverSideRoutes} = new Flow({
   imports: () => import('../target/frontend/generated-flow-imports')
 });
 
