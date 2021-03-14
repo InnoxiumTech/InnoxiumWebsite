@@ -6,12 +6,12 @@
     <groupId>uk.co.innoxium.candorapi</groupId>
     <artifactId>innoxiumtech</artifactId>
     <name>Innoxium Website</name>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
         <java.version>15</java.version>
-        <vaadin.version>19.0.0</vaadin.version>
+        <vaadin.version>20.0.0.alpha3</vaadin.version>
     </properties>
 
     <parent>
@@ -22,7 +22,15 @@
 
     <repositories>
         <!-- The order of definitions matters. Explicitly defining central here to make sure it has the highest priority. -->
-
+        <repository>
+            <id>vaadin-prereleases</id>
+            <url>
+                https://maven.vaadin.com/vaadin-prereleases/
+            </url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
         <!-- Main Maven repository -->
         <repository>
             <id>central</id>
@@ -49,7 +57,16 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </pluginRepository> 
+        </pluginRepository>
+        <pluginRepository>
+            <id>vaadin-prereleases</id>
+            <url>
+                https://maven.vaadin.com/vaadin-prereleases/
+            </url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
     </pluginRepositories>
 
     <dependencyManagement>
@@ -120,6 +137,11 @@
             <groupId>com.wontlost</groupId>
             <artifactId>sweet-alert2-vaadin</artifactId>
             <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-hateoas</artifactId>
+            <version>2.4.0</version>
         </dependency>
     </dependencies>
 
