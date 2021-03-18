@@ -38,14 +38,19 @@ export class MainView extends Layout {
                 </vaadin-tab>
               `
             )}
-            <vaadin-tab>
-              <a href="${router.urlForPath("modules")}">Modules</a>
+            <vaadin-tab @click="${this.downloadCandor}">
+              <a>Download</a>
             </vaadin-tab>
           </vaadin-tabs>
         </div>
         <slot></slot>
       </vaadin-app-layout>
     `;
+  }
+
+  downloadCandor() {
+
+    window.location.href = window.location.href + "download/candor/latest";
   }
 
   connectedCallback() {

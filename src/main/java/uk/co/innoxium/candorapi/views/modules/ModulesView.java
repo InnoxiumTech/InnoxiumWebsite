@@ -1,19 +1,18 @@
 package uk.co.innoxium.candorapi.views.modules;
 
-import java.util.Arrays;
-import java.util.List;
-
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.component.littemplate.LitTemplate;
+import com.vaadin.flow.component.template.Id;
 import com.vaadin.flow.router.AfterNavigationEvent;
 import com.vaadin.flow.router.AfterNavigationObserver;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.PageTitle;
 import uk.co.innoxium.candorapi.data.endpoint.ModulesEndpoint;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A Designer generated component for the person-form-view template.
@@ -24,7 +23,7 @@ import uk.co.innoxium.candorapi.data.endpoint.ModulesEndpoint;
 @JsModule("./views/modules/modules-view.ts")
 @CssImport("./views/modules/modules-view.css")
 @Tag("modules-view")
-@Route(value = "modules")
+//@Route(value = "modules")
 @PageTitle("Modules")
 public class ModulesView extends LitTemplate implements AfterNavigationObserver {
 

@@ -1,4 +1,16 @@
 home-view {
   display: block;
   padding: 1em;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+}
+#centered {
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }

@@ -20,22 +20,6 @@ export const views: ViewRoute[] = [
     path: 'home',
     component: 'home-view',
   },
-  {
-    path: 'candor',
-    component: 'candor-manager-view',
-    title: 'Candor Manager',
-    action: async () => {
-      await import('./views/candormanager/candor-manager-view');
-    },
-  },
-  {
-    path: 'quickstart',
-    component: 'quickstart-view',
-    title: 'Quickstart',
-    action: async () => {
-      await import('./views/quickstart/quickstart-view');
-    },
-  },
 ];
 export const routes: ViewRoute[] = [
   {
@@ -43,7 +27,7 @@ export const routes: ViewRoute[] = [
     component: 'main-view',
     children: [
         ...views,
-      ...serverSideRoutes
+        ...serverSideRoutes
     ],
   },
 ];

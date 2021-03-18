@@ -1,15 +1,9 @@
 package uk.co.innoxium.candorapi.data.endpoint;
 
-import com.vaadin.flow.server.connect.Endpoint;
 import com.vaadin.flow.server.connect.auth.AnonymousAllowed;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import net.bytebuddy.dynamic.scaffold.MethodGraph;
 
-import java.util.LinkedList;
-import java.util.List;
-
-@Endpoint("modules")
+//@Endpoint("modules")
 @AnonymousAllowed
 @Data
 public class ModulesEndpoint {
