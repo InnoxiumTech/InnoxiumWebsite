@@ -23,7 +23,7 @@ import uk.co.innoxium.candorapi.api.endpoint.repo.UpdateRepository;
  */
 @SpringBootApplication(scanBasePackages = "uk.co.innoxium.candorapi.api.endpoint")
 @Theme(themeClass = Lumo.class, variant = Lumo.DARK)
-@PWA(name = "InnoxiumTech", shortName = "InnoxiumTech", offlineResources = {"images/logo.svg"}, iconPath = "icons/favicon.ico")
+@PWA(name = "InnoxiumTech", shortName = "InnoxiumTech", offlineResources = {"images/logo.svg", "icons/favicon.ico"}, iconPath = "icons/favicon.ico")
 public class Application extends SpringBootServletInitializer implements AppShellConfigurator, CommandLineRunner {
 
     Logger logger = LoggerFactory.getLogger(Application.class);
@@ -32,6 +32,7 @@ public class Application extends SpringBootServletInitializer implements AppShel
     private UpdateRepository repo;
 
     public static void main(String[] args) {
+        System.setProperty("spring.jackson.serialization.INDENT_OUTPUT", "true");
         LaunchUtil.launchBrowserInDevelopmentMode(SpringApplication.run(Application.class, args));
     }
 
