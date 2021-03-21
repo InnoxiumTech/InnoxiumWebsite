@@ -19,8 +19,6 @@ public class Download {
     @GetMapping(value = "/download/{name}/{version}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public @ResponseBody ResponseEntity<Resource> serveFile(@PathVariable String name, @PathVariable String version, HttpServletRequest request) {
 
-        System.out.println("I'm tryiong to do stuff");
-
         if(name.equalsIgnoreCase("candor") && version.equalsIgnoreCase("latest")) {
 
             try {

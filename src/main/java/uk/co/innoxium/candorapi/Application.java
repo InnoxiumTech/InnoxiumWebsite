@@ -21,10 +21,15 @@ import uk.co.innoxium.candorapi.api.endpoint.repo.UpdateRepository;
  * Use the * and some desktop browsers.
  *
  */
-@SpringBootApplication(scanBasePackages = "uk.co.innoxium.candorapi.api.endpoint")
+@SpringBootApplication(scanBasePackages = { "uk.co.innoxium.candorapi.api.endpoint", "uk.co.innoxium.candorapi" })
 @Theme(themeClass = Lumo.class, variant = Lumo.DARK)
 @PWA(name = "InnoxiumTech", shortName = "InnoxiumTech", offlineResources = {"images/logo.svg", "icons/favicon.ico"}, iconPath = "icons/favicon.ico")
 public class Application extends SpringBootServletInitializer implements AppShellConfigurator, CommandLineRunner {
+
+    public static final String[] BASE_PACKAGES = new String [] {
+            "uk.co.innoxium.candorapi.api.endpoint",
+            "uk.co.innoxium.candorapi"
+    };
 
     Logger logger = LoggerFactory.getLogger(Application.class);
 

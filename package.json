@@ -52,7 +52,8 @@
     "lit-element": "2.3.1",
     "mobx": "^6.1.5",
     "sweetalert2": "^10.15.5",
-    "@vaadin/vaadin-messages": "2.0.0-alpha1"
+    "@vaadin/vaadin-messages": "2.0.0-alpha1",
+    "open": "^7.2.1"
   },
   "devDependencies": {
     "@types/validator": "13.1.0",
@@ -133,7 +134,8 @@
       "@vaadin/vaadin-upload": "5.0.0",
       "@webcomponents/webcomponentsjs": "^2.2.10",
       "lit-element": "2.3.1",
-      "@vaadin/vaadin-messages": "v2.0.0-alpha1"
+      "@vaadin/vaadin-messages": "2.0.0-alpha1",
+      "open": "^7.2.1"
     },
     "devDependencies": {
       "@types/validator": "13.1.0",
@@ -164,6 +166,6 @@
       "webpack-manifest-plugin": "3.0.0",
       "style-loader": "2.0.0"
     },
-    "hash": "cd883a3f64410631f7a003ed290053284162d6ab13ec1eaade47a335401acb67"
+    "hash": "816c0328a2fc95c5e1da304875ebcafbdb371f3482aad2931f8f0f611f67c2b2"
   }
 }
