@@ -32,11 +32,16 @@ public class Application extends SpringBootServletInitializer implements AppShel
     };
 
     Logger logger = LoggerFactory.getLogger(Application.class);
+    public static String runPath;
 
     @Autowired
     private UpdateRepository repo;
 
     public static void main(String[] args) {
+
+        if(args.length > 0)
+            runPath = args[0];
+
         System.setProperty("spring.jackson.serialization.INDENT_OUTPUT", "true");
         LaunchUtil.launchBrowserInDevelopmentMode(SpringApplication.run(Application.class, args));
     }

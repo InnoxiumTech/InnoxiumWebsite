@@ -7,10 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import uk.co.innoxium.candorapi.Application;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Objects;
 
 @RestController
@@ -23,7 +26,15 @@ public class Download {
 
             try {
 
-                Resource resource = new FileSystemResource(new File(".", "/files/CandorModManager.zip"));
+                if(Application.runPath == null || Application.runPath.isEmpty()) Application.runPath = Paths.get("").toAbsolutePath().normalize().toString();
+
+                Path runDir = Paths.get(Application.runPath);
+                File candorPath = new File(runDir.toString(), "files/CandorModManager.zip");
+
+                System.out.println(runDir);
+                System.out.println(candorPath);
+
+                Resource resource = new FileSystemResource(candorPath);
                 String contentType = request.getServletContext().getMimeType(resource.getFile().getAbsolutePath());
                 if(Objects.isNull(contentType)) contentType = MediaType.APPLICATION_OCTET_STREAM_VALUE;
 
