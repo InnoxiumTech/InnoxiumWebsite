@@ -1,0 +1,16 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: com.vaadin:vaadin-maven-plugin
+    versions:
+    - 20.0.0.alpha5
+    - 20.0.0.alpha7
+  - dependency-name: com.vaadin:vaadin-bom
+    versions:
+    - 20.0.0.alpha5
+    - 20.0.0.alpha7
